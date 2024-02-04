@@ -12,4 +12,9 @@ public interface LoteProductos_Repository extends JpaRepository<LoteProductos, S
     @Query("SELECT COUNT(l) FROM LoteProductos l")
     Long countLoteProductos();
 
+    //Cantidad lotes por año
+  @Query("SELECT COUNT(l) FROM LoteProductos l WHERE EXTRACT(YEAR FROM l.fechadeProduccion) = ?1")
+  Long countLoteProductosByYear(Integer year);
+
+
 }

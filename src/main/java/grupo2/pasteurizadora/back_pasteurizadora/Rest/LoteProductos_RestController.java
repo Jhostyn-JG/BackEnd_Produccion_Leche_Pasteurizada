@@ -49,4 +49,10 @@ public class LoteProductos_RestController {
         return loteProductos_service.countLoteProductos();
     }
 
+    //Cantidad lotes por año
+    @GetMapping("/countByYear/{year}")
+    public Long countLoteProductosByYear(@PathVariable Integer year) {
+        return loteProductos_service.countLoteProductosByYear(year);
+    }
+
 }
