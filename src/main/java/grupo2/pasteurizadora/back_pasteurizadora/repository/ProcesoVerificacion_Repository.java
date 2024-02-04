@@ -18,4 +18,8 @@ public interface ProcesoVerificacion_Repository  extends JpaRepository<ProcesoVe
     @Query("SELECT l.codLote FROM LoteProductos l")
     List<String> findCodLoteProductos();
 
+    //Consulta JPQL para saber cuantos datos hay en la tabla
+    @Query("SELECT COUNT(p) FROM ProcesoVerificacion p")
+    Long countProcesoVerificacion();
+
 }

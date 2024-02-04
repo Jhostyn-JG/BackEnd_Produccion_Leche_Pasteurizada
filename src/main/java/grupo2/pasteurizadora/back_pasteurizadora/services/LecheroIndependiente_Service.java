@@ -59,5 +59,10 @@ public class LecheroIndependiente_Service {
         lecheroIndependiente_repository.deleteById(codLechero);
     }
 
+    //Consulta JPQL para saber cuantos datos hay en la tabla
+    public Long countLecheroIndependiente() {
+        return lecheroIndependiente_repository.countLecheroIndependiente();
+    }
+
 
 }

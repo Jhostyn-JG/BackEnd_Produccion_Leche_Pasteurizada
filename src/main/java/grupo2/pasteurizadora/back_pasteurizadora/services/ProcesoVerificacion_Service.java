@@ -120,4 +120,9 @@ public class ProcesoVerificacion_Service {
         return procesoVerificacion_repository.findCodLoteProductos();
     }
 
+    //Consulta JPQL para saber cuantos datos hay en la tabla
+    public Long countProcesoVerificacion(){
+        return procesoVerificacion_repository.countProcesoVerificacion();
+    }
+
 }

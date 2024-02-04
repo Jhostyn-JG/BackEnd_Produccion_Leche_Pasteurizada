@@ -134,6 +134,10 @@ public class RecepcionLeche_Service {
         return recepcionLeche_repository.findCodHaciendaSinRecepcion();
     }
 
+    //Consulta JPQL para saber cuantos datos hay en la tabla
+    public Long countRecepcionLeche() {
+        return recepcionLeche_repository.countRecepcionLeche();
+    }
 
 
 }

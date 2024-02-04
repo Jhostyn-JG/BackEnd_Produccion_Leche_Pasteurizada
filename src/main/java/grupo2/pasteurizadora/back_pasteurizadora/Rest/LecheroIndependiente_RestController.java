@@ -46,4 +46,10 @@ public class LecheroIndependiente_RestController {
         lecheroIndependiente_service.deleteLecheroIndependiente(codLechero);
     }
 
+    //Consulta JPQL para saber cuantos datos hay en la tabla
+    @GetMapping("/count")
+    public Long countLecheroIndependiente() {
+        return lecheroIndependiente_service.countLecheroIndependiente();
+    }
+
 }

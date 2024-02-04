@@ -45,5 +45,10 @@ public class HaciendaLechera_RestController {
         haciendaLechera_service.deleteHaciendaLechera(codHacienda);
     }
 
+    //Consulta JPQL para saber cuantos datos hay en la tabla
+    @GetMapping("/count")
+    public Long countHaciendaLechera() {
+        return haciendaLechera_service.countHaciendaLechera();
+    }
 
 }

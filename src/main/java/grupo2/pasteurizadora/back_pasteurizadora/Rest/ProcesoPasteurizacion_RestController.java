@@ -53,4 +53,10 @@ public class ProcesoPasteurizacion_RestController {
         return procesoPasteurizacion_service.findCodRecepcionNotInProcesoPasteurizacion();
     }
 
+    //Consulta JPQL para saber cuantos datos hay en la tabla
+    @GetMapping("/count")
+    public Long countProcesoPasteurizacion() {
+        return procesoPasteurizacion_service.countProcesoPasteurizacion();
+    }
+
 }

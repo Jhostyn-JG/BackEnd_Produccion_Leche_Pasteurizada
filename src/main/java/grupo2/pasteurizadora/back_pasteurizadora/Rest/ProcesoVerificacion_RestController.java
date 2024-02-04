@@ -57,4 +57,10 @@ public class ProcesoVerificacion_RestController {
         return procesoVerificacion_service.findCodLoteProductos();
     }
 
+    //Consulta JPQL para saber cuantos datos hay en la tabla
+    @GetMapping("/count")
+    public Long countProcesoVerificacion() {
+        return procesoVerificacion_service.countProcesoVerificacion();
+    }
+
 }

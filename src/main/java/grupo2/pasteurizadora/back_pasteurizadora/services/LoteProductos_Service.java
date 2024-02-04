@@ -70,4 +70,10 @@ public class LoteProductos_Service {
             throw new ClientException("No se encuentra el codigo de Lote Proporcionado: " + codLote);
         }
     }
+
+    //Consulta JPQL para saber cuantos datos hay en la tabla
+    public Long countLoteProductos() {
+        return loteProductos_repository.countLoteProductos();
+    }
+
 }

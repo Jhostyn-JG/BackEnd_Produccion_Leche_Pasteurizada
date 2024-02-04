@@ -72,4 +72,10 @@ public class RecepcionLeche_RestController {
         return recepcionLeche_service.findCodHaciendaSinRecepcion();
     }
 
+    //Consulta JPQL para saber cuantos datos hay en la tabla
+    @GetMapping("/count")
+    public Long countRecepcionLeche() {
+        return recepcionLeche_service.countRecepcionLeche();
+    }
+
 }

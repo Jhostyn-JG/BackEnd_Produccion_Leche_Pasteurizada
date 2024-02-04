@@ -26,6 +26,8 @@ public interface RecepcionLeche_Repository extends JpaRepository<RecepcionLeche,
     @Query("SELECT h.codHacienda FROM HaciendaLechera h WHERE h.codHacienda NOT IN (SELECT hl.codHacienda FROM RecepcionLeche r JOIN r.haciendaLechera hl)")
     List<String> findCodHaciendaSinRecepcion();
 
-
+    //Consulta JPQL para saber cuantos datos hay en la tabla
+    @Query("SELECT COUNT(r) FROM RecepcionLeche r")
+    Long countRecepcionLeche();
 
 }

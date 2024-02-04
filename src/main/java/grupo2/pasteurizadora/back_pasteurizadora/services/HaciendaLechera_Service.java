@@ -60,7 +60,10 @@ public class HaciendaLechera_Service {
         haciendaLechera_repository.deleteById(codHacienda);
     }
 
-
+    //Consulta JPQL para saber cuantos datos hay en la tabla
+    public Long countHaciendaLechera() {
+        return haciendaLechera_repository.countHaciendaLechera();
+    }
 
 }
 

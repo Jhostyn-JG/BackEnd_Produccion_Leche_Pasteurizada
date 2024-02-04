@@ -43,5 +43,10 @@ public class LoteProductos_RestController {
         loteProductos_service.deleteLoteProductos(codLote);
     }
 
+    //Consulta JPQL para saber cuantos datos hay en la tabla
+    @GetMapping("/count")
+    public Long countLoteProductos() {
+        return loteProductos_service.countLoteProductos();
+    }
 
 }

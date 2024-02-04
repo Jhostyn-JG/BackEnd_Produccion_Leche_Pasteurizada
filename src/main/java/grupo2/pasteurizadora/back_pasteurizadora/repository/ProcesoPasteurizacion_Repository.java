@@ -19,4 +19,7 @@ public interface ProcesoPasteurizacion_Repository extends JpaRepository<ProcesoP
     @Query("SELECT r.codRecepcion FROM RecepcionLeche r WHERE r.codRecepcion NOT IN (SELECT p.codProcesoPastz FROM ProcesoPasteurizacion p)")
     List<String> findCodRecepcionLecheNotInProcesoPasteurizacion();
 
+    //Consulta JPQL para saber cuantos datos hay en la tabla
+    @Query("SELECT COUNT(p) FROM ProcesoPasteurizacion p")
+    Long countProcesoPasteurizacion();
 }
