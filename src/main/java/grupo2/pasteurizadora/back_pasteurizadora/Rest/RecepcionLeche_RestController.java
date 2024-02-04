@@ -1,0 +1,75 @@
+package grupo2.pasteurizadora.back_pasteurizadora.Rest;
+
+import grupo2.pasteurizadora.back_pasteurizadora.dto.RecepcionHaciendasLecheras_dto;
+import grupo2.pasteurizadora.back_pasteurizadora.dto.RecepcionLecheUpdateDto;
+import grupo2.pasteurizadora.back_pasteurizadora.dto.RecepciondeLechero_dto;
+import grupo2.pasteurizadora.back_pasteurizadora.entity.RecepcionLeche;
+import grupo2.pasteurizadora.back_pasteurizadora.services.RecepcionLeche_Service;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@CrossOrigin(origins = {"http://localhost:4200"})
+@RestController
+@RequestMapping("/recepcionLeche")
+public class RecepcionLeche_RestController {
+
+    final
+    RecepcionLeche_Service recepcionLeche_service;
+
+    public RecepcionLeche_RestController(RecepcionLeche_Service recepcionLeche_service) {
+        this.recepcionLeche_service = recepcionLeche_service;
+    }
+
+    @GetMapping
+    public List<RecepcionLeche> getAll() {
+        return recepcionLeche_service.getAllRecepcionLeche();
+    }
+
+    @GetMapping("/{codRecepcion}")
+    public RecepcionLeche getRecepcionLecheByCodRecepcion(@PathVariable String codRecepcion) {
+        return recepcionLeche_service.getRecepcionLecheById(codRecepcion);
+    }
+
+    @PostMapping("/lecheroIndependiente")
+    public RecepcionLeche saveRecepcionLecheroIndependiente(@RequestBody RecepciondeLechero_dto recepciondeLechero_dto) {
+        return recepcionLeche_service.saveRecepcionLecheroIndependiente(recepciondeLechero_dto);
+    }
+
+    @PostMapping("/haciendaLechera")
+    public RecepcionLeche saveRecepcionHaciendaLechera(@RequestBody RecepcionHaciendasLecheras_dto recepcionHaciendasLecheras_dto){
+        return recepcionLeche_service.saveRecepcionHaciendaLechera(recepcionHaciendasLecheras_dto);
+    }
+
+    @PutMapping
+    public RecepcionLeche updateRecepcionLeche(@RequestBody RecepcionLecheUpdateDto recepcionLecheUpdateDto){
+        return recepcionLeche_service.updateRecepcionLeche(recepcionLecheUpdateDto);
+    }
+
+                                               @DeleteMapping("/{codRecepcion}")
+    public void deleteRecepcionLeche(@PathVariable String codRecepcion){
+        recepcionLeche_service.deleteRecepcionLeche(codRecepcion);
+    }
+
+    //Consultas JPQL
+    @GetMapping("/lecheroIndependiente_cod")
+    public List<String> getCodLechero(){
+        return recepcionLeche_service.findCodLechero();
+    }
+
+    @GetMapping("/haciendaLechera_cod")
+    public List<String> getCodHacienda(){
+        return recepcionLeche_service.findCodHacienda();
+    }
+
+    @GetMapping("/lecheroIndependiente_cod_sinRecepcion")
+    public List<String> getCodLecheroSinRecepcion(){
+        return recepcionLeche_service.findCodLecheroSinRecepcion();
+    }
+
+    @GetMapping("/haciendaLechera_cod_sinRecepcion")
+    public List<String> getCodHaciendaSinRecepcion(){
+        return recepcionLeche_service.findCodHaciendaSinRecepcion();
+    }
+
+}
