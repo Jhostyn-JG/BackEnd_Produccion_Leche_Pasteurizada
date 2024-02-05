@@ -19,7 +19,7 @@ public class RecepciondeLechero_dto {
     @NotNull(message = "Debe ingresar los resultados de las pruebas de calidad")
     private String resultadosPruebasCalidad;
     @NotNull(message = "Debe ingresar la cantidad de leche recibida")
-    private String cantidadLecheRecibida;
+    private int cantidadLecheRecibida;
     @NotNull(message = "Debe ingresar el pago total")
     private String pagoTotal;
     @NotNull(message = "Debe ingresar el codigo de la hacienda")

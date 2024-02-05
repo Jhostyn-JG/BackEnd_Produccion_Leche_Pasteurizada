@@ -46,7 +46,7 @@ public class RecepcionLeche_RestController {
         return recepcionLeche_service.updateRecepcionLeche(recepcionLecheUpdateDto);
     }
 
-                                               @DeleteMapping("/{codRecepcion}")
+    @DeleteMapping("/{codRecepcion}")
     public void deleteRecepcionLeche(@PathVariable String codRecepcion){
         recepcionLeche_service.deleteRecepcionLeche(codRecepcion);
     }
@@ -76,6 +76,12 @@ public class RecepcionLeche_RestController {
     @GetMapping("/count")
     public Long countRecepcionLeche() {
         return recepcionLeche_service.countRecepcionLeche();
+    }
+
+    //Cantidad leche recibida por año/mes
+    @GetMapping("/sumLecheByYearMonth/{year}/{month}")
+    public Long sumRecepcionLecheByYearMonth(@PathVariable Integer year, @PathVariable Integer month){
+        return recepcionLeche_service.sumRecepcionLecheByYearMonth(year, month);
     }
 
 }

@@ -25,7 +25,7 @@ public class RecepcionLeche {
     private String codRecepcion;
     private LocalDate fechaRecepcion;
     private String resultadosPruebasCalidad;
-    private String cantidadLecheRecibida;
+    private int cantidadLecheRecibida;
     private String pagoTotal;
 
 

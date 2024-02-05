@@ -30,4 +30,8 @@ public interface RecepcionLeche_Repository extends JpaRepository<RecepcionLeche,
     @Query("SELECT COUNT(r) FROM RecepcionLeche r")
     Long countRecepcionLeche();
 
+    //Cantidad leche recibida por año/mes
+   @Query("SELECT SUM(r.cantidadLecheRecibida) FROM RecepcionLeche r WHERE EXTRACT(YEAR FROM r.fechaRecepcion) = ?1 AND EXTRACT(MONTH FROM r.fechaRecepcion) = ?2")
+    Long sumRecepcionLecheByYearMonth(Integer year, Integer month);
+
 }

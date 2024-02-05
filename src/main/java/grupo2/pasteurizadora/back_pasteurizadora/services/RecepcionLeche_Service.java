@@ -37,7 +37,7 @@ public class RecepcionLeche_Service {
         recepcionLeche.setCodRecepcion(recepciondeLechero_dto.getCodRecepcion());
         recepcionLeche.setFechaRecepcion(recepciondeLechero_dto.getFechaRecepcion());
         recepcionLeche.setResultadosPruebasCalidad(recepciondeLechero_dto.getResultadosPruebasCalidad());
-        recepcionLeche.setCantidadLecheRecibida(recepciondeLechero_dto.getCantidadLecheRecibida());
+       recepcionLeche.setCantidadLecheRecibida(recepciondeLechero_dto.getCantidadLecheRecibida());
         recepcionLeche.setPagoTotal(recepciondeLechero_dto.getPagoTotal());
 
         List<LecheroIndependiente> lecheroIndependiente = recepciondeLechero_dto.getLecheroIndependiente().stream()
@@ -59,7 +59,7 @@ public class RecepcionLeche_Service {
         recepcionLeche.setCodRecepcion(recepcionHaciendasLecheras_dto.getCodRecepcion());
         recepcionLeche.setFechaRecepcion(recepcionHaciendasLecheras_dto.getFechaRecepcion());
         recepcionLeche.setResultadosPruebasCalidad(recepcionHaciendasLecheras_dto.getResultadosPruebasCalidad());
-        recepcionLeche.setCantidadLecheRecibida(recepcionHaciendasLecheras_dto.getCantidadLecheRecibida());
+       recepcionLeche.setCantidadLecheRecibida(recepcionHaciendasLecheras_dto.getCantidadLecheRecibida());
         recepcionLeche.setPagoTotal(recepcionHaciendasLecheras_dto.getPagoTotal());
 
         List<HaciendaLechera> haciendaLechera = recepcionHaciendasLecheras_dto.getHaciendaLechera().stream()
@@ -137,6 +137,10 @@ public class RecepcionLeche_Service {
     //Consulta JPQL para saber cuantos datos hay en la tabla
     public Long countRecepcionLeche() {
         return recepcionLeche_repository.countRecepcionLeche();
+    }
+    //Cantidad leche recibida por año/mes
+    public Long sumRecepcionLecheByYearMonth(Integer year, Integer month) {
+        return recepcionLeche_repository.sumRecepcionLecheByYearMonth(year, month);
     }
 
 
