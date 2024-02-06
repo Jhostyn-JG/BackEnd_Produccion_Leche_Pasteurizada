@@ -76,9 +76,6 @@ public class LoteProductos_Service {
         return loteProductos_repository.countLoteProductos();
     }
 
-    //Cantidad lotes por año
-    public Long countLoteProductosByYear(Integer year) {
-        return loteProductos_repository.countLoteProductosByYear(year);
-    }
+
 
 }

@@ -63,36 +63,14 @@ public class RecepcionLeche_RestController {
         return recepcionLeche_service.findCodHacienda();
     }
 
-    @GetMapping("/lecheroIndependiente_cod_sinRecepcion")
-    public List<String> getCodLecheroSinRecepcion(){
-        return recepcionLeche_service.findCodLecheroSinRecepcion();
-    }
-
-    @GetMapping("/haciendaLechera_cod_sinRecepcion")
-    public List<String> getCodHaciendaSinRecepcion(){
-        return recepcionLeche_service.findCodHaciendaSinRecepcion();
-    }
-
     //Consulta JPQL para saber cuantos datos hay en la tabla
     @GetMapping("/count")
     public Long countRecepcionLeche() {
         return recepcionLeche_service.countRecepcionLeche();
     }
 
-    //Cantidad leche recibida por año/mes
-    @GetMapping("/sumLecheByYearMonth/{year}/{month}")
-    public Long sumRecepcionLecheByYearMonth(@PathVariable Integer year, @PathVariable Integer month){
-        return recepcionLeche_service.sumRecepcionLecheByYearMonth(year, month);
-    }
 
-    //Cantidad de leche recibida entre el rango de fecha de incio y fecha fin con el campo (fechaRecepcion)
-    @GetMapping("/sumLecheByDateRange/{fechaInicio}/{fechaFin}")
-    public Long sumRecepcionLecheByDateRange(@PathVariable String fechaInicio, @PathVariable String fechaFin){
-        LocalDate inicio = LocalDate.parse(fechaInicio);
-        LocalDate fin = LocalDate.parse(fechaFin);
-        return recepcionLeche_service.sumRecepcionLecheByDateRange(inicio, fin);
-    }
-
+    //Cantidad leche recibida por rango de fechas
     @GetMapping("/sumLecheByDateRangeGroupByFecha/{fechaInicio}/{fechaFin}")
     public List<Object[]> sumRecepcionLecheByDateRangeGroupByFecha(@PathVariable String fechaInicio, @PathVariable String fechaFin){
         LocalDate inicio = LocalDate.parse(fechaInicio);

@@ -104,9 +104,7 @@ public class ProcesoPasteurizacion_Service {
         return procesoPasteurizacion_repository.findCodRecepcionLeche();
     }
 
-    public List<String> findCodRecepcionNotInProcesoPasteurizacion(){
-        return procesoPasteurizacion_repository.findCodRecepcionLecheNotInProcesoPasteurizacion();
-    }
+
 
     //Consulta JPQL para saber cuantos datos hay en la tabla
     public Long countProcesoPasteurizacion() {

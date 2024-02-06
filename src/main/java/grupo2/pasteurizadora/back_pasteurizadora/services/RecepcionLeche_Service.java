@@ -128,28 +128,13 @@ public class RecepcionLeche_Service {
         return recepcionLeche_repository.findCodHacienda();
     }
 
-    public List<String> findCodLecheroSinRecepcion(){
-        return recepcionLeche_repository.findCodLecheroSinRecepcion();
-    }
-
-    public List<String> findCodHaciendaSinRecepcion(){
-        return recepcionLeche_repository.findCodHaciendaSinRecepcion();
-    }
 
     //Consulta JPQL para saber cuantos datos hay en la tabla
     public Long countRecepcionLeche() {
         return recepcionLeche_repository.countRecepcionLeche();
     }
-    //Cantidad leche recibida por año/mes
-    public Long sumRecepcionLecheByYearMonth(Integer year, Integer month) {
-        return recepcionLeche_repository.sumRecepcionLecheByYearMonth(year, month);
-    }
 
     //Cantidad de leche recibida entre el rango de fecha de incio y fecha fin con el campo (fechaRecepcion)
-    public Long sumRecepcionLecheByDateRange(LocalDate fechaInicio, LocalDate fechaFin) {
-        return recepcionLeche_repository.sumRecepcionLecheByDateRange(fechaInicio, fechaFin);
-    }
-
     public List<Object[]> sumRecepcionLecheByDateRangeGroupByFecha(LocalDate fechaInicio, LocalDate fechaFin) {
         return recepcionLeche_repository.sumRecepcionLecheByDateRangeGroupByFecha(fechaInicio, fechaFin);
     }

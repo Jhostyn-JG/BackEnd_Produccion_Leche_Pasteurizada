@@ -48,10 +48,6 @@ public class ProcesoPasteurizacion_RestController {
         return procesoPasteurizacion_service.findCodRecepcion();
     }
 
-    @GetMapping("/RecepcionLeche_cod_not_in")
-    public List<String> getCodRecepcionLecheNotInProcesoPasteurizacion(){
-        return procesoPasteurizacion_service.findCodRecepcionNotInProcesoPasteurizacion();
-    }
 
     //Consulta JPQL para saber cuantos datos hay en la tabla
     @GetMapping("/count")
