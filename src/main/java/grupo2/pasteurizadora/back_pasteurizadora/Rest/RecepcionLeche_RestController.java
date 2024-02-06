@@ -7,6 +7,7 @@ import grupo2.pasteurizadora.back_pasteurizadora.entity.RecepcionLeche;
 import grupo2.pasteurizadora.back_pasteurizadora.services.RecepcionLeche_Service;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @CrossOrigin(origins = {"http://localhost:4200"})
@@ -82,6 +83,21 @@ public class RecepcionLeche_RestController {
     @GetMapping("/sumLecheByYearMonth/{year}/{month}")
     public Long sumRecepcionLecheByYearMonth(@PathVariable Integer year, @PathVariable Integer month){
         return recepcionLeche_service.sumRecepcionLecheByYearMonth(year, month);
+    }
+
+    //Cantidad de leche recibida entre el rango de fecha de incio y fecha fin con el campo (fechaRecepcion)
+    @GetMapping("/sumLecheByDateRange/{fechaInicio}/{fechaFin}")
+    public Long sumRecepcionLecheByDateRange(@PathVariable String fechaInicio, @PathVariable String fechaFin){
+        LocalDate inicio = LocalDate.parse(fechaInicio);
+        LocalDate fin = LocalDate.parse(fechaFin);
+        return recepcionLeche_service.sumRecepcionLecheByDateRange(inicio, fin);
+    }
+
+    @GetMapping("/sumLecheByDateRangeGroupByFecha/{fechaInicio}/{fechaFin}")
+    public List<Object[]> sumRecepcionLecheByDateRangeGroupByFecha(@PathVariable String fechaInicio, @PathVariable String fechaFin){
+        LocalDate inicio = LocalDate.parse(fechaInicio);
+        LocalDate fin = LocalDate.parse(fechaFin);
+        return recepcionLeche_service.sumRecepcionLecheByDateRangeGroupByFecha(inicio, fin);
     }
 
 }

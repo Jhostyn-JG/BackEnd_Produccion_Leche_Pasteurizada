@@ -11,6 +11,8 @@ import grupo2.pasteurizadora.back_pasteurizadora.repository.HaciendaLechera_Repo
 import grupo2.pasteurizadora.back_pasteurizadora.repository.LecheroIndependiente_Repository;
 import grupo2.pasteurizadora.back_pasteurizadora.repository.RecepcionLeche_Repository;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDate;
 import java.util.Optional;
 
 import java.util.List;
@@ -141,6 +143,15 @@ public class RecepcionLeche_Service {
     //Cantidad leche recibida por año/mes
     public Long sumRecepcionLecheByYearMonth(Integer year, Integer month) {
         return recepcionLeche_repository.sumRecepcionLecheByYearMonth(year, month);
+    }
+
+    //Cantidad de leche recibida entre el rango de fecha de incio y fecha fin con el campo (fechaRecepcion)
+    public Long sumRecepcionLecheByDateRange(LocalDate fechaInicio, LocalDate fechaFin) {
+        return recepcionLeche_repository.sumRecepcionLecheByDateRange(fechaInicio, fechaFin);
+    }
+
+    public List<Object[]> sumRecepcionLecheByDateRangeGroupByFecha(LocalDate fechaInicio, LocalDate fechaFin) {
+        return recepcionLeche_repository.sumRecepcionLecheByDateRangeGroupByFecha(fechaInicio, fechaFin);
     }
 
 
